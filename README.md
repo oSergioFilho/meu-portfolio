@@ -30,7 +30,7 @@ Site portfólio personalizado baseado no template Strategy da BootstrapMade, ada
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/oSergioFilho/meu-portfolio.git
 ```
 
 2. Abra o arquivo `index.html` no navegador ou use um servidor local.
@@ -51,7 +51,6 @@ Template baseado em [Strategy Bootstrap Template](https://bootstrapmade.com/stra
 
 ## 👤 Autor
 
-[Seu Nome]
+Sérgio Filho
 
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [Seu Perfil](https://linkedin.com/in/seu-perfil)
+- GitHub: [@oSergioFilho](https://github.com/oSergioFilho)
