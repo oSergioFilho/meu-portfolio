@@ -158,7 +158,6 @@ h6 {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-<<<<<<< HEAD
 .header .header-top {
   width: 100%;
 }
@@ -211,8 +210,6 @@ h6 {
   }
 }
 
-=======
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
 .header .logo {
   line-height: 1;
 }
@@ -268,12 +265,6 @@ h6 {
 }
 
 @media (max-width: 1200px) {
-<<<<<<< HEAD
-=======
-  .header .social-links-header {
-    display: none;
-  }
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   .header {
     padding-top: 10px;
   }
@@ -282,7 +273,6 @@ h6 {
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px 5px 10px 15px;
-<<<<<<< HEAD
     gap: 15px;
     display: block;
   }
@@ -296,12 +286,6 @@ h6 {
 
   .header .header-bottom {
     margin-top: 8px;
-=======
-  }
-
-  .header .logo {
-    order: 1;
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   }
 
   .header .btn-getstarted {
@@ -311,7 +295,6 @@ h6 {
   }
 
   .header .navmenu {
-<<<<<<< HEAD
     width: 100%;
   }
 
@@ -354,9 +337,6 @@ h6 {
 
   .mobile-nav-active .navmenu>ul {
     display: flex;
-=======
-    order: 3;
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   }
 }
 
@@ -479,10 +459,7 @@ h6 {
     margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
-<<<<<<< HEAD
     display: none !important;
-=======
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   }
 
   .navmenu {
@@ -491,7 +468,6 @@ h6 {
   }
 
   .navmenu ul {
-<<<<<<< HEAD
     display: flex !important;
     list-style: none;
     position: static;
@@ -507,26 +483,11 @@ h6 {
     justify-content: center;
     gap: 6px;
     flex-wrap: wrap;
-=======
-    display: none;
-    list-style: none;
-    position: absolute;
-    inset: 60px 20px 20px 20px;
-    padding: 10px 0;
-    margin: 0;
-    border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 9998;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   }
 
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
-<<<<<<< HEAD
     padding: 10px 12px;
     font-family: var(--nav-font);
     font-size: 15px;
@@ -534,15 +495,6 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-=======
-    padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-size: 17px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
     white-space: nowrap;
     transition: 0.3s;
   }
@@ -603,11 +555,7 @@ h6 {
   }
 
   .mobile-nav-active {
-<<<<<<< HEAD
     overflow: auto;
-=======
-    overflow: hidden;
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   }
 
   .mobile-nav-active .mobile-nav-toggle {
@@ -618,7 +566,6 @@ h6 {
     right: 15px;
     margin-right: 0;
     z-index: 9999;
-<<<<<<< HEAD
     display: none !important;
   }
 
@@ -627,24 +574,11 @@ h6 {
     overflow: visible;
     inset: auto;
     background: transparent;
-=======
-  }
-
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
     transition: 0.3s;
   }
 
   .mobile-nav-active .navmenu>ul {
-<<<<<<< HEAD
     display: flex;
-=======
-    display: block;
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   }
 }
 
@@ -1544,11 +1478,7 @@ section,
 }
 
 .services .service-card {
-<<<<<<< HEAD
   padding: 30px;
-=======
-  padding: 40px 40px 40px 40px;
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   margin-bottom: 30px;
   border: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
   transition: all 0.3s ease;
@@ -1671,25 +1601,12 @@ section,
 
 @media (max-width: 768px) {
   .services .service-card {
-<<<<<<< HEAD
     padding: 30px;
-=======
-    padding: 150px 25px 25px;
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   }
 
   .services .service-card h3 {
     font-size: 24px;
   }
-<<<<<<< HEAD
-=======
-
-  .services .service-card .service-icon {
-    position: absolute;
-    top: 40px;
-    left: 25px;
-  }
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
 }
 
 @media (max-width: 768px) {
@@ -2377,11 +2294,7 @@ section,
   align-items: center;
   justify-content: center;
   gap: 12px;
-<<<<<<< HEAD
   background: rgba(255, 255, 255, 0.2);
-=======
-  background: rgba(0,0,0,0.64);
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   padding: 18px;
   border-radius: 16px; /* igual ao border-radius do card */
   opacity: 0;
@@ -2946,13 +2859,9 @@ section,
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-<<<<<<< HEAD
   flex-direction: column;
   align-items: center;
   text-align: center;
-=======
-  align-items: flex-start;
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
   gap: 15px;
 }
 
@@ -4157,11 +4066,4 @@ section,
 
 /*--------------------------------------------------------------
 # Starter Section Section
-<<<<<<< HEAD
 --------------------------------------------------------------*/
-=======
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
->>>>>>> d91b747707ba2f04821e02be6eb21e3b91ae6c66
