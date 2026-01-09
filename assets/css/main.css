@@ -958,6 +958,60 @@ section,
   animation: float 6s ease-in-out infinite;
 }
 
+/* Gradiente animado sobre a imagem (overlay) */
+.hero .fluid-shape::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* gradiente com várias paradas para efeito mais rico */
+  background: linear-gradient(120deg, rgba(227,161,39,0.55) 0%, rgba(255,255,255,0.0) 50%, rgba(3,17,25,0.55) 100%);
+  background-size: 200% 200%;
+  mix-blend-mode: overlay;
+  border-radius: 8px;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Masked logo with animated gradient: uses the SVG as a mask so the gradient fills the logo shape */
+.hero .fluid-shape.masked-logo {
+  width: 320px;
+  height: 320px;
+  max-width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(120deg, #7407D3 0%, #6B0BB8 30%, #0718C4 50%, #6B0BB8 70%, #7407D3 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease-in-out infinite;
+  -webkit-mask-image: url("../img/abstract/Logo vetor.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: url("../img/abstract/Logo vetor.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Disable the previous overlay (::after) for the masked element so the gradient background shows correctly */
+.hero .fluid-shape.masked-logo::after {
+  display: none;
+}
+
+/* Ajuste: reduza a opacidade na propriedade rgba(...) para um overlay mais sutil. */
+
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -1053,7 +1107,7 @@ section,
 .about .about-image .experience-badge {
   position: absolute;
   bottom: 30px;
-  right: -30px;
+  right: 10px;
   background: var(--accent-color);
   color: var(--contrast-color);
   padding: 1.5rem;
@@ -2001,8 +2055,54 @@ section,
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  background: var(--surface-color);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  /* card look: subtle surface + border so it reads as a card but doesn't add a white watermark */
+  background: color-mix(in srgb, var(--surface-color) 8%, transparent 92%);
+  border: 1px solid color-mix(in srgb, var(--heading-color) 6%, transparent 94%);
+  padding: 16px;
+  box-shadow: 0 6px 24px rgba(2, 6, 23, 0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+/* Fazer os botões dos cards seguirem o mesmo estilo dos filtros ("Todos os Projetos") */
+.portfolio .portfolio-entry .entry-links .btn {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 25px;
+  background: var(--surface-color) !important;
+  color: var(--default-color) !important;
+  border-radius: 30px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none !important;
+  width: 100%;
+  transition: all 0.28s ease;
+  box-shadow: none;
+}
+
+.portfolio .portfolio-entry .entry-links .btn i {
+  margin-left: 8px;
+  transition: transform 0.28s ease;
+}
+
+.portfolio .portfolio-entry .entry-links .btn:hover {
+  color: var(--accent-color) !important;
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%) !important;
+}
+
+@media (max-width: 768px) {
+  .portfolio .portfolio-entry .entry-links .btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+.portfolio .portfolio-entry:hover {
+  transform: translateY(-6px);
+  /* sombra mais suave e opaca (menos preta, mais difusa) */
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.08), 0 6px 20px rgba(0, 0, 0, 0.04);
 }
 
 .portfolio .portfolio-entry .entry-image {
@@ -2019,22 +2119,89 @@ section,
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Padroniza thumbnails do portfólio quando elas são logos das empresas */
+.portfolio .portfolio-entry .entry-image {
+  /* Padroniza a exibição das logos do portfólio */
+  aspect-ratio: auto;
+  padding: 8px; /* menor padding porque o card já tem padding */
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* garante caixas consistentes mesmo quando logos têm proporções diferentes */
+  min-height: 160px;
+}
+
+.portfolio .portfolio-entry .entry-image img {
+  display: block;
+  max-width: 100%;
+  max-height: 140px; /* altura máxima padrão para desktop */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
+}
+
+/* Hover leve para destaque */
+.portfolio .portfolio-entry:hover .entry-image img {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.16);
+}
+
+@media (max-width: 992px) {
+  .portfolio .portfolio-entry .entry-image {
+    min-height: 140px;
+    padding: 10px;
+  }
+  .portfolio .portfolio-entry .entry-image img {
+    max-height: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio .portfolio-entry .entry-image {
+    min-height: 110px;
+    padding: 8px;
+  }
+  .portfolio .portfolio-entry .entry-image img {
+    max-height: 90px;
+  }
+}
+
 .portfolio .portfolio-entry .entry-image .entry-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  /* expandir o overlay para cobrir o card inteiro (incluindo o padding do .portfolio-entry) */
+  inset: -16px; /* corresponde ao padding do .portfolio-entry */
+  background: transparent;
   display: flex;
-  align-items: flex-end;
-  padding: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(8px);
+  transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1), transform 0.28s ease;
+  pointer-events: none; /* evita capturar eventos até ficar visível */
+  z-index: 5;
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .overlay-content {
-  width: 100%;
-  transform: translateY(20px);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* painel ocupa todo o card e centraliza o conteúdo */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(0,0,0,0.64);
+  padding: 18px;
+  border-radius: 16px; /* igual ao border-radius do card */
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
 .portfolio .portfolio-entry .entry-image .entry-overlay .entry-meta {
@@ -2089,15 +2256,20 @@ section,
 
 .portfolio .portfolio-entry:hover .entry-image img {
   transform: scale(1.05);
+  /* ao hover, a logo fica opaca (esmaecida) para enfatizar o painel */
+  opacity: 0.18;
+  filter: none;
 }
 
 .portfolio .portfolio-entry:hover .entry-image .entry-overlay {
+  /* overlay visível no hover — o painel interno cobre o card */
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .portfolio .portfolio-entry:hover .entry-image .entry-overlay .overlay-content {
-  transform: translateY(0);
+  opacity: 1; /* mostra o painel com nome e botões */
 }
 
 .portfolio .portfolio-entry:hover .entry-image .entry-overlay .entry-links a {

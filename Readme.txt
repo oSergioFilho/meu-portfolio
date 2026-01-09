@@ -1,6 +1,4 @@
-Thanks for downloading this template!
+Meu Portfólio
 
-Template Name: Strategy
-Template URL: https://bootstrapmade.com/strategy-bootstrap-agency-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+Portfólio pessoal contendo meus projetos e trabalhos desenvolvidos.
+
