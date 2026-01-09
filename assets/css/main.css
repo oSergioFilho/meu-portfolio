@@ -10,6 +10,13 @@
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
+/*
+ * GUIA RÁPIDO (variáveis):
+ * - Estas variáveis (CSS custom properties) centralizam fontes e cores do site.
+ * - Para mudar a identidade visual, comece por aqui: --background-color, --default-color,
+ *   --heading-color e --accent-color.
+ * - Variáveis com prefixo --nav-* afetam especificamente o menu.
+ */
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -60,6 +67,11 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+/*
+ * Estilos globais (base):
+ * - Define o “padrão” de tipografia e cores (body, links, headings).
+ * - Quando algo estiver com uma cor/fonte inesperada, normalmente vem daqui.
+ */
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -142,6 +154,18 @@ h6 {
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
+/*
+ * HEADER (topo fixo):
+ * - HTML: <header id="header" class="header ..."> em index.html.
+ * - O “cartão” arredondado é o .header-container.
+ * - Ajustes comuns:
+ *   - Altura/respiração: padding da .header e/ou .header-container
+ *   - Arredondamento: border-radius da .header-container
+ *   - Sombra: box-shadow da .header-container
+ * - Breakpoints importantes:
+ *   - >=1200px: layout desktop (itens em uma linha)
+ *   - <1200px: layout responsivo (pode quebrar linha)
+ */
 .header {
   --background-color: rgba(255, 255, 255, 0);
   color: var(--default-color);
@@ -153,7 +177,7 @@ h6 {
 
 .header .header-container {
   background: var(--surface-color);
-  border-radius: 50px;
+  border-radius: 10px;
   padding: 5px 25px 5px 30px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
@@ -313,13 +337,13 @@ h6 {
     overflow: visible;
     box-shadow: none;
     justify-content: center;
-    gap: 6px;
+    gap: 4px;
     flex-wrap: wrap;
   }
 
   .navmenu a,
   .navmenu a:focus {
-    padding: 10px 12px;
+    padding: 8px 10px;
     justify-content: center;
     font-size: 15px;
   }
@@ -343,6 +367,17 @@ h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
+/*
+ * MENU DE NAVEGAÇÃO:
+ * - HTML: <nav id="navmenu" class="navmenu ...">.
+ * - Desktop: regras dentro de @media (min-width: 1200px).
+ * - Responsivo/mobile: regras dentro de @media (max-width: 1199px) e também ajustes em
+ *   @media (max-width: 1200px) (usado aqui para o header/nav no tablet).
+ * - Ajustes comuns:
+ *   - Espaço entre itens: gap do .navmenu ul
+ *   - Tamanho do “botão” do link: padding do .navmenu a
+ *   - Cor do link/hover/ativo: variáveis --nav-color e --nav-hover-color
+ */
 /* Navmenu - Desktop */
 @media (min-width: 1200px) {
   .navmenu {
@@ -481,14 +516,14 @@ h6 {
     z-index: 9998;
     box-shadow: none;
     justify-content: center;
-    gap: 6px;
+    gap: 1px;
     flex-wrap: wrap;
   }
 
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
-    padding: 10px 12px;
+    padding: 6px 8px;
     font-family: var(--nav-font);
     font-size: 15px;
     font-weight: 500;
@@ -585,6 +620,12 @@ h6 {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
+/*
+ * RODAPÉ:
+ * - HTML: <footer id="footer" class="footer">.
+ * - Aqui você ajusta espaçamentos, links e ícones sociais do rodapé.
+ * - Para mudar o “respiro” geral do rodapé: padding-top/padding-bottom.
+ */
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -738,6 +779,15 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
+/*
+ * PRELOADER:
+ * - HTML: <div id="preloader"></div>
+ * - JS: removido no window.load (assets/js/main.js).
+ * - Se quiser desativar o preloader, o mais comum é:
+ *   - remover o <div id="preloader"> do HTML, ou
+ *   - comentar/remover o bloco JS que faz preloader.remove().
+ * - Cores e “spinner” são controlados aqui.
+ */
 #preloader {
   position: fixed;
   inset: 0;
@@ -773,6 +823,16 @@ h6 {
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
+/*
+ * BOTÃO "VOLTAR AO TOPO":
+ * - HTML: <a id="scroll-top" class="scroll-top">.
+ * - JS controla a classe .active para mostrar/ocultar ao rolar a página.
+ * - Ajustes comuns:
+ *   - Posição: right/bottom
+ *   - Tamanho: width/height
+ *   - Formato: border-radius
+ *   - Cor: background-color
+ */
 .scroll-top {
   position: fixed;
   visibility: hidden;
@@ -807,6 +867,12 @@ h6 {
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
+/*
+ * AOS (Animation On Scroll) no mobile:
+ * - Remove o delay de animações em telas menores para melhorar performance
+ *   e sensação de responsividade.
+ * - Se você quiser manter delays no mobile, remova/ajuste este bloco.
+ */
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
@@ -816,6 +882,14 @@ h6 {
 /*--------------------------------------------------------------
 # Global Page Titles & Breadcrumbs
 --------------------------------------------------------------*/
+/*
+ * TÍTULO DE PÁGINA + BREADCRUMBS:
+ * - Usado normalmente em páginas internas (não tanto na home).
+ * - Classes principais:
+ *   - .page-title (container do título)
+ *   - .breadcrumbs (caminho tipo "Home / Página")
+ * - Ajustes comuns: padding, tamanhos de fonte, overlay (::after).
+ */
 .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -869,6 +943,13 @@ h6 {
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
+/*
+ * SEÇÕES (padrão global):
+ * - Toda <section> usa este padding vertical por padrão.
+ * - scroll-margin-top controla o “offset” ao clicar nos links âncora do menu
+ *   (para não esconder o topo da seção atrás do header fixo).
+ * - Se quiser mais/menos espaçamento geral entre seções, altere o padding aqui.
+ */
 section,
 .section {
   color: var(--default-color);
@@ -889,6 +970,15 @@ section,
 /*--------------------------------------------------------------
 # Global Section Titles
 --------------------------------------------------------------*/
+/*
+ * TÍTULOS DE SEÇÃO (padrão):
+ * - HTML: normalmente <div class="container section-title">.
+ * - Controla o "mini título" (h2 menor) + o título principal.
+ * - Ajustes comuns:
+ *   - Espaçamento inferior: padding-bottom
+ *   - Linha decorativa do h2: h2::after
+ *   - Tipografia: font-size e text-transform
+ */
 .section-title {
   padding-bottom: 60px;
   position: relative;
@@ -928,6 +1018,21 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+/*
+ * HERO (primeira dobra):
+ * - HTML: <section id="hero" class="hero section">.
+ * - Controla o layout do banner principal (texto + visual).
+ * - Ajustes comuns:
+ *   - Distância do topo: padding do .hero (por causa do header fixo)
+ *   - Tamanho do título: .hero .main-heading h1 (com breakpoints)
+ *   - Botão: .hero .cta-button .btn
+ *   - Logo/visual: .hero .fluid-shape e .masked-logo (mask-image usando SVG)
+ */
+/*
+ * Esta seção é responsável por criar o layout do banner principal da página,
+ * incluindo o texto e o visual. Você pode ajustar a distância do topo, o tamanho
+ * do título, o botão e a logo/visual para personalizar a aparência do banner.
+ */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -936,6 +1041,12 @@ section,
   align-items: center;
   overflow: hidden;
   padding: 100px 0;
+}
+
+@media (max-width: 1199px) { /* Ajuste para telas menores */
+  .hero {
+    padding-top: 180px;
+  }
 }
 
 .hero::after {
@@ -1231,6 +1342,15 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+/*
+ * ABOUT / SOBRE:
+ * - HTML: <section id="about" class="about section">.
+ * - Estiliza imagem, badge de experiência, textos e cards de destaque.
+ * - Ajustes comuns:
+ *   - Foto + badge: .about-image e .experience-badge
+ *   - Cards: .about-content .feature-item (padding, border-radius, sombra)
+ *   - Botão: .about-content .btn-primary
+ */
 .about {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -1439,6 +1559,15 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
+/*
+ * SERVICES / SERVIÇOS:
+ * - HTML: <section id="services" class="services section">.
+ * - Controla o cabeçalho (título grande) e os cards de serviços.
+ * - Ajustes comuns:
+ *   - Card: .services .service-card (padding, border, hover)
+ *   - Ícone: .services .service-icon
+ *   - Botão/link do header: .services .service-btn
+ */
 .services .service-header {
   margin-bottom: 60px;
 }
@@ -2327,7 +2456,7 @@ section,
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0);
   padding: 18px;
   border-radius: 16px; /* igual ao border-radius do card */
   opacity: 0;
