@@ -4,7 +4,7 @@ Portfólio pessoal desenvolvido para apresentar projetos e trabalhos de desenvol
 
 ## 📋 Sobre
 
-Site portfólio personalizado baseado no template Strategy da BootstrapMade, adaptado para desenvolvedores. 
+Site portfólio personalizado baseado no template Strategy da BootstrapMade.
 
 ## 🚀 Funcionalidades
 
@@ -12,7 +12,6 @@ Site portfólio personalizado baseado no template Strategy da BootstrapMade, ada
 - Seção sobre mim personalizada
 - Portfólio de projetos com filtros
 - Serviços oferecidos
-- Formulário de contato
 - Links para redes sociais
 
 ## 🛠️ Tecnologias
@@ -34,16 +33,6 @@ git clone https://github.com/oSergioFilho/meu-portfolio.git
 ```
 
 2. Abra o arquivo `index.html` no navegador ou use um servidor local.
-
-## 📝 Personalização
-
-Para personalizar o portfólio:
-
-1. **Redes Sociais**: Atualize os links no header e footer no arquivo `index.html`
-2. **Foto**: Substitua `assets/img/about/about-portrait-1.webp` pela sua foto
-3. **Projetos**: Adicione suas próprias imagens de projetos em `assets/img/portfolio/`
-4. **Conteúdo**: Personalize os textos nas seções About, Services, etc.
-5. **Email**: Atualize o email de contato no footer e na seção de contato
 
 ## 📄 Licença
 
